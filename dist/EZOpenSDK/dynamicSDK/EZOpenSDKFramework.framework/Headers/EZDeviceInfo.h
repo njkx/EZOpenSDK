@@ -43,7 +43,7 @@
 @property (nonatomic) BOOL isSupportZoom;
 ///是否支持提示音开关
 @property (nonatomic) BOOL isSupportAudioOnOff;
-/// 是否支持镜像翻转
+/// 是否支持中心镜像翻转
 @property (nonatomic) BOOL isSupportMirrorCenter;
 /// 是否支持声波配网
 @property (nonatomic) BOOL isSupportSoundWave;

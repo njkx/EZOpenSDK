@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param savePath 下载存储路径
  @return 初始化成功返回实例，失败返回nil
  */
-- (instancetype) initTaskWithID:(NSString *)taskID
+- (instancetype) initTaskWithID:(NSUInteger)taskID
                 cloudRecordFile:(EZCloudRecordFile *)recordFile
                      verifyCode:(NSString *)verifyCode
                        savePath:(NSString *)savePath;
