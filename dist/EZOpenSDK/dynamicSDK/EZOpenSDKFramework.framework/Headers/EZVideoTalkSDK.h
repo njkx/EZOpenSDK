@@ -19,6 +19,12 @@ typedef enum : NSUInteger {
     EZVideoTalkMessageStartInputData    //链接建立成功，开始推流
 } EZVideoTalkMessageType;
 
+typedef NS_OPTIONS(NSUInteger, EZVideoTalkCaptureType) {
+    EZVideoTalkCaptureNone = 1 << 0,
+    EZVideoTalkCaptureVideo = 1 << 1,
+    EZVideoTalkCaptureAudio = 1 << 2,
+};
+
 
 @class EZVideoTalkSDK;
 
@@ -90,14 +96,23 @@ SDK初始化
                  remoteWindow:(UIView *)remoteWin;
 
 /**
- 开始双向音视频对讲，耗时接口
+ 开始双向音视频对讲，耗时接口，默认 EZVideoTalkCaptureVideo | EZVideoTalkCaptureAudio 同时开启
  */
 - (void)start;
+
+/**
+ 开始双向音视频对讲，耗时接口
+ */
+- (void)startWithType:(EZVideoTalkCaptureType)type;
 
 /**
  停止双向音视频对讲
  */
 - (void)stop;
+
+/// 开启声音，接收到EZVideoTalkMessageStartInputData消息后调用
+/// @param open 开关状态
+- (int32_t) openSound:(BOOL)open;
 
 #pragma mark - 日志调试
 /**
