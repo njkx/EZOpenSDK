@@ -30,5 +30,5 @@
 #include <EZOpenSDKFramework/EZStorageInfo.h>
 #include <EZOpenSDKFramework/EZUserInfo.h>
 #include <EZOpenSDKFramework/EZVideoQualityInfo.h>
-
+#include <EZOpenSDKFramework/EZVideoTransformer.h>
 

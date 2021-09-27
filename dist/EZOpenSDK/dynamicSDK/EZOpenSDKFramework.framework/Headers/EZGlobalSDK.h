@@ -248,6 +248,12 @@
 + (NSData *)decryptData:(NSData *)data verifyCode:(NSString *)verifyCode;
 
 
+/// 告警图片解密方法
+/// @param data 需要解密的数据
+/// @param verifyCode 设备验证码 或 平台返回的checksum
+/// @param type 1:设备加密；2：平台加密
++ (NSData *)decryptData:(NSData *)data verifyCode:(NSString *)verifyCode encryptType:(NSInteger)type;
+
 #pragma mark - V3.2 新增加接口
 
 /**

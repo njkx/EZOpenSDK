@@ -231,7 +231,12 @@
  */
 + (NSData *)decryptData:(NSData *)data verifyCode:(NSString *)verifyCode;
 
-
+/// @since 4.16.8
+/// 告警图片解密方法
+/// @param data 需要解密的数据
+/// @param verifyCode 设备验证码 或 平台返回的checksum
+/// @param type 1:设备加密；2：平台加密
++ (NSData *)decryptData:(NSData *)data verifyCode:(NSString *)verifyCode encryptType:(NSInteger)type;
 #pragma mark - V3.2 新增加接口
 
 /**
@@ -818,10 +823,12 @@
 /// 创建会议信息
 /// @param password 自定义密码
 /// @param customId 开发者自定义用户ID
+/// @param limit 限制最大人数 最大100
 /// @param completion operation
 + (void)requestCallingMeetingInfo:(NSString *)password
                          customId:(NSInteger)customId
-                       completion:(void (^)(int32_t roomId, NSString *vtmAddress ,NSString *clientid ,NSInteger customId, NSError *error))completion;
+                            limit:(NSInteger)limit
+                       completion:(void (^)(int32_t roomId, NSString *vtmAddress ,NSString *clientid ,NSInteger customId,NSString *controlServerAddress,  NSError *error))completion;
 
 /// 加入方获取会议信息
 /// @param roomId  房间号
@@ -829,5 +836,5 @@
 /// @param completion operation
 + (void)requestCalledMeetingInfo:(NSString *)roomId
                         customId:(NSInteger)customId
-                       completion:(void (^)(int32_t roomId, NSString *vtmAddress,NSString *clientid ,NSInteger customId, NSError *error))completion;
+                       completion:(void (^)(int32_t roomId, NSString *vtmAddress,NSString *clientid ,NSInteger customId, NSString *controlServerAddress,NSError *error))completion;
 @end

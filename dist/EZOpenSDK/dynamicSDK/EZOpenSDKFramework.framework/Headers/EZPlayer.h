@@ -95,6 +95,19 @@ typedef NS_ENUM(NSInteger, EZPlaybackRate) {
  */
 - (void)player:(EZPlayer *)player didReceivedDisplayHeight:(NSInteger)height displayWidth:(NSInteger)width;
 
+
+/**
+ 播放过程中 回调解码数据
+ 重要：该回调会比较频繁(一秒若干次)，同时直接由播放库线程回调上来，请勿在方法中做耗时操作
+ 重要：回调的数据的内存是由播放库内部分配并管理的，在使用时，请同步处理回调的data；如需异步处理，请拷贝该数据
+ 
+ @param player 播放器对象
+ @param data 播放库解码出的数据
+ @param width 视频宽度
+ @param height 视频高度
+ */
+- (void)player:(EZPlayer *)player didDecodedData:(NSData *)data width:(NSInteger)width height:(NSInteger)height;
+
 @end
 
 /// 此类为萤石播放器类
