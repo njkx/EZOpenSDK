@@ -913,4 +913,19 @@ sourceApplication annotation:(id) annotation
                                 platFormId:(NSString *)platFormId
                                 completion:(void (^)(id records, NSError *error))completion;
 
+#pragma mark - v4.18.0
+
+/**
+ *  刷新设备详细信息
+ *
+ *  @param deviceSerial 设备序列号
+ *  @param cameraNo     通道号
+ *  @param completion   回调block
+ *
+ *  @return operation
+ */
++ (void)refreshDeviceDetailInfo:(NSString *)deviceSerial
+                       cameraNo:(NSInteger)cameraNo
+                     completion:(void (^)(NSError *error))completion;
+
 @end
